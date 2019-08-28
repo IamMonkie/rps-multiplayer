@@ -43,7 +43,7 @@ body {
   text-align: center;
 }
 
-#rockContainer {
+/* #rockContainer {
   /* width: 30%; */
   /* margin: auto; */
   /* margin-top: 10px; */
@@ -51,9 +51,9 @@ body {
   background-color: rgb(18, 235, 65);
   /* justify-content: center; */
   text-align: center;
-}
+} */
 
-#paperContainer {
+/* #paperContainer {
   /* width: 30%; */
   /* margin: auto; */
   /* margin-top: 10px; */
@@ -61,9 +61,9 @@ body {
   background-color: rgb(235, 18, 29);
   /* justify-content: center; */
   text-align: center;
-}
+} */
 
-#scissorsContainer {
+/* #scissorsContainer {
   /* width: 30%; */
   /* margin: auto; */
   /* margin-top: 10px; */
@@ -71,4 +71,9 @@ body {
   background-color: rgb(18, 105, 235);
   /* justify-content: center; */
   text-align: center;
+} */
+
+.btn {
+  /* display: block; */
+  width: 100%;
 }

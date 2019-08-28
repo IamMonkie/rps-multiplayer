@@ -1,30 +1,34 @@
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+/* -------------------------------------------------------------------------- */
+/*                               run on startup                               */
+/* -------------------------------------------------------------------------- */
 
-// Variables
-// ================================================================================
+$(document).ready(function() {
+  /* -------------------------------------------------------------------------- */
+  /*                             Initialize Firebase                            */
+  /* -------------------------------------------------------------------------- */
 
-// Get a reference to the database service
-var database = firebase.database();
+  // firebase.initializeApp(firebaseConfig);
 
-// Initializing our click count at 0
-var clickCounter = 0;
+  /* -------------------------------------------------------------------------- */
+  /*                                  Variables                                 */
+  /* -------------------------------------------------------------------------- */
 
-// Functions
-// ================================================================================
+  const rock = [0];
+  const paper = [1];
+  const scissors = [2];
 
-// On Click
-$("#click-button").on("click", function() {
-  // Add 1 to clickCounter
-  clickCounter++;
+  // Get a reference to the database service
+  // var database = firebase.database();
 
-  // **** Store Click Data to Firebase in a JSON property called clickCount *****
-  // **** Note how we are using the Firebase .set() method ****
-  // **** .ref() refers to the path you want to save your data to
-  // **** Since we left .ref() blank, it will save to the root directory
-  database.ref().set({
-    clickCount: clickCounter
+  // Initializing our click count at 0
+  var clickCounter = 0;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Functions                                 */
+  /* -------------------------------------------------------------------------- */
+
+  // On Click
+  $(".btn").on("click", function() {
+    console.log("Button Clicked");
   });
-
-  // Now! go to https://fir-click-counter-7cdb9.firebaseio.com/ to see the impact to the DB
 });
