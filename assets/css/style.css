@@ -51,6 +51,7 @@ body {
 
 .choice {
   cursor: pointer;
+  margin: 10px;
 }
 
 #rockContainer {
@@ -66,4 +67,12 @@ body {
 #scissorsContainer {
   background-color: rgb(38, 176, 218);
   padding: 1rem;
+}
+
+.text-win {
+  color: blueviolet;
+}
+
+.text-lose {
+  color: red;
 }

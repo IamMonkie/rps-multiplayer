@@ -28,7 +28,7 @@ $(document).ready(function() {
   /* -------------------------------------------------------------------------- */
 
   // On Click
-  $(".btn").on("click", function() {
+  $(".choice").on("click", function() {
     console.log("Button Clicked");
   });
 });
