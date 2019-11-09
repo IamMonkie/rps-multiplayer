@@ -4,58 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>RPS-Multiplayer</title>
+    <title>RPS</title>
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                   CSS                                   -->
-    <!-- ----------------------------------------------------------------------- -->
+    <!-- ----------------------------- Scripts ------------------------------ -->
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                Bootstrap CSS                            -->
-    <!-- ----------------------------------------------------------------------- -->
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <!-- ----------------------------------------------------------------------- -->
-
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                  Font                                   -->
-    <!-- ----------------------------------------------------------------------- -->
-
-    <link
-      href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap"
-      rel="stylesheet"
-    />
-    <!-- ----------------------------------------------------------------------- -->
-
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                               Custom CSS                                -->
-    <!-- ----------------------------------------------------------------------- -->
-
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-    <!-- ----------------------------------------------------------------------- -->
-
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                 Scripts                                 -->
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                 JQurey                                  -->
-    <!-- ----------------------------------------------------------------------- -->
+    <!-- ------------------------------ Bootstrap ------------------------------ -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
       crossorigin="anonymous"
     ></script>
-    <!-- ----------------------------------------------------------------------- -->
-
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                Bootstrap                                -->
-    <!-- ----------------------------------------------------------------------- -->
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -66,50 +24,90 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                Firebase                                 -->
-    <!-- ----------------------------------------------------------------------- -->
 
-    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
-    <!-- ----------------------------------------------------------------------- -->
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                               Javascript                                -->
-    <!-- ----------------------------------------------------------------------- -->
+    <!-- -------------------------- Custom Javascript -------------------------- -->
+    <script src="./assets/javascript/rps.js"></script>
 
-    <script src="assets/javascript/rps.js"></script>
-    <!-- ----------------------------------------------------------------------- -->
+    <!-- ---------------------------- font awesome ----------------------------- -->
+    <script
+      src="https://kit.fontawesome.com/2e2ef74b93.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- -------------------------------- Style -------------------------------- -->
+
+    <!-- ---------------------------- Bootstrap CSS ---------------------------- -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- ---------------------------- Google Fonts ----------------------------- -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ----------------------------- Custom CSS ------------------------------ -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- -------------------------------- modal -------------------------------- -->
+    <link rel="stylesheet" href="./assets/css/modal.css" />
+
+    <!-- ---------------------------------  --------------------------------- -->
   </head>
   <body>
-    <div class="container" id="arenaContainer">
-      <div class="row">
-        <div class="col-6" id="player1">
-          Player 1
+    <!-- ----------------------------- Player Stats ------------------------------ -->
+    <div class="container" id="wrapper">
+      <div class="container-fluid" id="infoContainer">
+        <div class="row">
+          <div class="col-sm-5 scoreContainer" id="player1Score">
+            <h3>Player 1 Wins: 0</h3>
+          </div>
+          <div class="col-sm-5 scoreContainer" id="player2Score">
+            <h3>Player 2 Wins: 0</h3>
+          </div>
         </div>
-        <div class="col-6" id="player2">
-          Player 2
+        <div class="row">
+          <div class="col-sm">
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg"
+              id="restartBtn"
+            >
+              Play Again
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container" id="choicesContainer">
-      <div class="row">
-        <div class="col-4" id="rockContainer">
-          <button type="button" class="btn btn-success" id="rockBtn">
-            Rock
-          </button>
+      <!-- ----------------------------- selections ------------------------------ -->
+
+      <div class="container" id="arenaContainer">
+        <h3>Make your selection</h3>
+        <div class="row" id="choiceContainer">
+          <div class="col-sm">
+            <i class="choice fas fa-hand-rock fa-10x" id="rockContainer"></i>
+          </div>
+          <div class="col-sm">
+            <i class="choice fas fa-hand-paper fa-10x" id="paperContainer"></i>
+          </div>
+          <div class="col-sm">
+            <i
+              class="choice fas fa-hand-scissors fa-10x"
+              id="scissorsContainer"
+            ></i>
+          </div>
         </div>
-
-        <div class="col-4" id="paperContainer">
-          <button type="button" class="btn btn-danger" id="paperBtn">
-            Paper
-          </button>
-        </div>
-
-        <div class="col-4" id="scissorsContainer">
-          <button type="button" class="btn btn-info" id="scissorsBtn">
-            Scissors
-          </button>
+        <!-- -------------------------------- Modal -------------------------------- -->
+        <div class="modal row">
+          <div class="modal-content" id="result">
+            <h1>YOU WIN</h1>
+            <i class="fas fa-hand-rock fa-10x" id="rock"></i>
+            <p>PLAYER 2 CHOSE ROCK</p>
+          </div>
         </div>
       </div>
     </div>

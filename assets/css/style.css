@@ -1,79 +1,69 @@
+@font-face {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
-  background-color: purple;
-  color: greenyellow;
-  font-family: "Lexend Deca", sans-serif;
-  font-size: 1em;
-  text-shadow: 0.125em 0.125em rgb(46, 46, 46);
+  background-color: mediumpurple;
+  font-family: "Roboto";
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+#infoContainer {
+  margin-top: 20px;
+}
+
+.scoreContainer {
+  margin: auto;
+}
+
+#restartBtn {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#player1Score {
+  background-color: mediumturquoise;
+  border-radius: 1em;
+}
+
+#player2Score {
+  background-color: mediumspringgreen;
+  border-radius: 1em;
 }
 
 #arenaContainer {
-  /* width: 90%; */
-  /* margin: auto; */
+  background-color: mediumvioletred;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#choiceContainer {
   margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: rgb(56, 175, 253);
-  text-align: center;
 }
 
-#player1 {
-  /* position: relative; */
-  /* width: 80%; */
-  /* margin: auto; */
-  background-color: rgb(18, 235, 65);
-  justify-content: center;
-  text-align: center;
+.choice {
+  cursor: pointer;
 }
 
-#player2 {
-  /* margin: 10px; */
-  background-color: rgb(235, 18, 18);
-  /* justify-content: center; */
-  text-align: center;
+#rockContainer {
+  background-color: rgb(196, 157, 201);
+  padding: 1rem;
 }
 
-#choicesContainer {
-  /* width: 80%; */
-  /* margin: auto; */
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
-  padding: 10px;
-  background-color: rgb(247, 243, 8);
-  justify-content: center;
-  text-align: center;
+#paperContainer {
+  background-color: paleturquoise;
+  padding: 1rem;
 }
 
-/* #rockContainer {
-  /* width: 30%; */
-  /* margin: auto; */
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
-  background-color: rgb(18, 235, 65);
-  /* justify-content: center; */
-  text-align: center;
-} */
-
-/* #paperContainer {
-  /* width: 30%; */
-  /* margin: auto; */
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
-  background-color: rgb(235, 18, 29);
-  /* justify-content: center; */
-  text-align: center;
-} */
-
-/* #scissorsContainer {
-  /* width: 30%; */
-  /* margin: auto; */
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
-  background-color: rgb(18, 105, 235);
-  /* justify-content: center; */
-  text-align: center;
-} */
-
-.btn {
-  /* display: block; */
-  width: 100%;
+#scissorsContainer {
+  background-color: rgb(38, 176, 218);
+  padding: 1rem;
 }
