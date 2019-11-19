@@ -45,7 +45,7 @@ body {
   padding: 10px;
 }
 
-#choiceContainer {
+#choicesContainer {
   margin-top: 10px;
 }
 
@@ -54,17 +54,17 @@ body {
   margin: 10px;
 }
 
-#rockContainer {
+#rock {
   background-color: rgb(196, 157, 201);
   padding: 1rem;
 }
 
-#paperContainer {
+#paper {
   background-color: paleturquoise;
   padding: 1rem;
 }
 
-#scissorsContainer {
+#scissors {
   background-color: rgb(38, 176, 218);
   padding: 1rem;
 }
