@@ -16,7 +16,7 @@ $(document).ready(function() {
   // const rock = [0];
   // const paper = [1];
   // const scissors = [2];
-  const choices = document.querySelectorAll(".choice");
+  //const choices = document.querySelectorAll(".choice");
   let score1 = document.getElementById("#player1Score");
   let score2 = document.getElementById("#player2Score");
   const result = document.getElementById("#result");
@@ -37,13 +37,6 @@ $(document).ready(function() {
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
-
-  // On Click
-  /*
-  $(".choice").on("click", function() {
-    console.log("Button Clicked");
-  });
-  */
 
   //Play Game
   function play(e) {
@@ -121,5 +114,9 @@ $(document).ready(function() {
     }
   }
   //Event Listeners
+  //on click
+  /*
   choices.forEach(choice => choice.addEventListener("click", play));
+  */
+  $(".choice").on("click", play);
 });
