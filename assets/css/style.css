@@ -25,8 +25,15 @@ body {
 
 #restartBtn {
   display: none;
+  margin-top: 1rem;
   font-size: 2rem;
   cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+#restartBtn:hover {
+  background-color: rgb(124, 38, 221);
 }
 
 #player1Score {

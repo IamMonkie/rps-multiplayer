@@ -17,8 +17,8 @@ $(document).ready(function() {
   // const paper = [1];
   // const scissors = [2];
   const choices = document.querySelectorAll(".choice");
-  const score1 = document.getElementById("#player1Score");
-  const score2 = document.getElementById("#player2Score");
+  let score1 = document.getElementById("#player1Score");
+  let score2 = document.getElementById("#player2Score");
   const result = document.getElementById("#result");
   // const restart = document.getElementById("restart");
   const modal = document.querySelector(".modal");
@@ -111,14 +111,15 @@ $(document).ready(function() {
   function showWinner(winner, player2Choice) {
     //Increment Score
     if (winner === "Player 1") {
-      scoreboard.player1++;
+      score1++;
     } else {
-      scoreboard.player2++;
+      score2++;
       //Show Modal
-      // result.innerHTML = `<h1 class="text-win>You Win</h1>`;
+      //result.innerHTML = `<h1 class="text-win>You Win</h1>`;
+      document.getElementById("result").textContent =
+        "Player 2 Choice: " + player2Choice;
     }
   }
-
   //Event Listeners
   choices.forEach(choice => choice.addEventListener("click", play));
 });
