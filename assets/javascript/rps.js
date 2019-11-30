@@ -13,9 +13,6 @@ $(document).ready(function() {
   /*                                  Variables                                 */
   /* -------------------------------------------------------------------------- */
 
-  // const rock = [0];
-  // const paper = [1];
-  // const scissors = [2];
   //const choices = document.querySelectorAll(".choice");
   let score1 = document.getElementById("#player1Score");
   let score2 = document.getElementById("#player2Score");
@@ -43,7 +40,8 @@ $(document).ready(function() {
     const player1Choice = e.target.id;
     const player2Choice = getPlayer2Choice();
     const winner = getWinner(player1Choice, player2Choice);
-    showWinner();
+    showWinner(winner, player2Choice);
+    clearModal();
     console.log(
       "Player 1 Choice: " +
         player1Choice +
@@ -104,19 +102,55 @@ $(document).ready(function() {
   function showWinner(winner, player2Choice) {
     //Increment Score
     if (winner === "Player 1") {
-      score1++;
-    } else {
-      score2++;
+      scoreboard.player1++;
+
       //Show Modal
-      //result.innerHTML = `<h1 class="text-win>You Win</h1>`;
-      document.getElementById("result").textContent =
-        "Player 2 Choice: " + player2Choice;
+      result.innerHTML = `
+      <h1 class="text-win>You Win</h1>
+      <i class='fas fa-hand-${player1Choice} fa-10x"></i>
+      <p>Player 2 chose: <strong>${player2Choice}</strong></p>`;
+    } else if (winner === player2Choice) {
+      scoreboard.player2++;
+      //Show Modal
+      result.innerHTML = `
+      <h1 class="text-lose>You Lose</h1>
+      <i class='fas fa-hand-${player2Choice} fa-10x"></i>
+      <p>Player 2 chose: <strong>${player2Choice}</strong></p>`;
+    } else {
+      result.innerHTML = `
+      <h1>Draw</h1>
+      <i class='fas fa-hand-${player2Choice} fa-10x"></i>
+      <p>Player 2 chose: <strong>${player2Choice}</strong></p>`;
+    }
+    // Show Score
+    scoreboard.innerHtml = `<p>Player 1: ${scoreboard.player1}</p>
+  <p>Player 2: ${scoreboard.player2}</p>
+  `;
+
+    modal.style.display = "block";
+    restartBtn.style.display = "block";
+  }
+
+  // clear modal
+  function clearModal(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
     }
   }
+
+  function restartGame() {
+    scoreboard.player1 = 0;
+    scoreboard.player2 = 0;
+    scoreboard.innerHTML = `<p>Player 1: 0</p>``<p>Player 2: 0</p>`;
+    restartBtn.style.display = "none";
+  }
+
   //Event Listeners
-  //on click
-  /*
-  choices.forEach(choice => choice.addEventListener("click", play));
-  */
+  // Button clicks
+  //choices.forEach(choice => choice.addEventListener('click', play));
   $(".choice").on("click", play);
+  // Modal
+  window.addEventListener("click", clearModal);
+  // Restart
+  restart.addEventListener("click", restartGame);
 });
