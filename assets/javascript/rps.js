@@ -14,16 +14,16 @@ $(document).ready(function() {
   /* -------------------------------------------------------------------------- */
 
   //const choices = document.querySelectorAll(".choice");
-  let score1 = document.getElementById("#player1Score");
-  let score2 = document.getElementById("#player2Score");
-  const result = document.getElementById("#result");
-  // const restart = document.getElementById("restart");
+  const result = document.getElementById("result");
+  //const restart = document.getElementById("restart");
   const modal = document.querySelector(".modal");
 
-  const scoreboard = {
-    player1: 1,
-    player2: 1
+  let scoreboard = {
+    player1: 0,
+    computer: 0
   };
+  const score1 = document.getElementById("player1Score");
+  const score2 = document.getElementById("computerScore");
 
   // Get a reference to the database service
   // var database = firebase.database();
@@ -38,25 +38,31 @@ $(document).ready(function() {
   //Play Game
   function play(e) {
     const player1Choice = e.target.id;
-    const player2Choice = getPlayer2Choice();
-    const winner = getWinner(player1Choice, player2Choice);
-    showWinner(winner, player2Choice);
-    clearModal();
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(player1Choice, computerChoice);
+    showWinner(winner, computerChoice);
+    // clearModal();
     console.log(
       "Player 1 Choice: " +
         player1Choice +
         "\n" +
-        "Player 2 Choice: " +
-        player2Choice +
+        "computer Choice: " +
+        computerChoice +
         "\n" +
         "Winner: " +
-        winner
+        winner +
+        "\n" +
+        "scoreboard.player1: " +
+        scoreboard.player1 +
+        "\n" +
+        "scoreboard.computer: " +
+        scoreboard.computer
     );
   }
 
-  //Get player 2 choice
+  //Get computer choice
 
-  function getPlayer2Choice() {
+  function getComputerChoice() {
     const rand = Math.random();
     if (rand < 0.34) {
       return "rock";
@@ -75,7 +81,7 @@ $(document).ready(function() {
     // Rock
     else if (p1 === "rock") {
       if (p2 === "paper") {
-        return "Player 2";
+        return "Computer";
       } else {
         return "Player 1";
       }
@@ -83,7 +89,7 @@ $(document).ready(function() {
     // Paper
     else if (p1 === "paper") {
       if (p2 === "scissors") {
-        return "Player 2";
+        return "Computer";
       } else {
         return "Player 1";
       }
@@ -91,7 +97,7 @@ $(document).ready(function() {
     // Scissors
     else if (p1 === "scissors") {
       if (p2 === "rock") {
-        return "Player 2";
+        return "Computer";
       } else {
         return "Player 1";
       }
@@ -99,35 +105,35 @@ $(document).ready(function() {
   }
 
   //Show Winner
-  function showWinner(winner, player2Choice) {
+  function showWinner(winner, computerChoice) {
     //Increment Score
     if (winner === "Player 1") {
       scoreboard.player1++;
-
-      //Show Modal
       result.innerHTML = `
-      <h1 class="text-win>You Win</h1>
-      <i class='fas fa-hand-${player1Choice} fa-10x"></i>
-      <p>Player 2 chose: <strong>${player2Choice}</strong></p>`;
-    } else if (winner === player2Choice) {
-      scoreboard.player2++;
-      //Show Modal
+      <h1 class="text-win">You Win</h1>
+      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <p>The computer has chosen: <strong>${computerChoice}</strong></p>`;
+    } else if (winner === "Computer") {
+      scoreboard.computer++;
       result.innerHTML = `
-      <h1 class="text-lose>You Lose</h1>
-      <i class='fas fa-hand-${player2Choice} fa-10x"></i>
-      <p>Player 2 chose: <strong>${player2Choice}</strong></p>`;
+      <h1 class="text-lose">You Lose</h1>
+      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <p>The computer has chosen: <strong>${computerChoice}</strong></p>`;
     } else {
       result.innerHTML = `
       <h1>Draw</h1>
-      <i class='fas fa-hand-${player2Choice} fa-10x"></i>
-      <p>Player 2 chose: <strong>${player2Choice}</strong></p>`;
+      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <p>The computer has chosen: <strong>${computerChoice}</strong></p>`;
     }
-    // Show Score
-    scoreboard.innerHtml = `<p>Player 1: ${scoreboard.player1}</p>
-  <p>Player 2: ${scoreboard.player2}</p>
-  `;
 
+    // Show Score
+
+    score1.innerHTML = `<h3>Player 1 Wins: ${scoreboard.player1} </h3>`;
+    score2.innerHTML = `<h3>Computer Wins: ${scoreboard.computer} </h3>`;
+
+    // Show Modal
     modal.style.display = "block";
+    // Show Restart Button
     restartBtn.style.display = "block";
   }
 
@@ -140,8 +146,9 @@ $(document).ready(function() {
 
   function restartGame() {
     scoreboard.player1 = 0;
-    scoreboard.player2 = 0;
-    scoreboard.innerHTML = `<p>Player 1: 0</p>``<p>Player 2: 0</p>`;
+    scoreboard.computer = 0;
+    score1.innerHTML = `<h3>Player 1 Wins: ${scoreboard.player1} </h3>`;
+    score2.innerHTML = `<h3>Computer Wins: ${scoreboard.computer} </h3>`;
     restartBtn.style.display = "none";
   }
 
@@ -149,8 +156,9 @@ $(document).ready(function() {
   // Button clicks
   //choices.forEach(choice => choice.addEventListener('click', play));
   $(".choice").on("click", play);
+
   // Modal
   window.addEventListener("click", clearModal);
-  // Restart
-  restart.addEventListener("click", restartGame);
+  // Restart Button
+  restartBtn.addEventListener("click", restartGame);
 });

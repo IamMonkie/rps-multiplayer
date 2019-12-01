@@ -7,7 +7,7 @@
   width: 100vw;
   overflow: auto;
 }
-.modal-content {
+.modalContent {
   background-color: #fff;
   text-align: center;
   margin: 10% auto;
@@ -19,11 +19,11 @@
   animation-duration: var(--modal-duration);
 }
 
-.modal-content h1 {
+.modalContent h1 {
   margin-bottom: 1rem;
 }
 
-.modal-content p {
+.modalContent p {
   font-size: 1.2rem;
   margin-top: 1rem;
 }

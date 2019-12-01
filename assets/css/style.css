@@ -24,27 +24,31 @@ body {
   margin: auto;
 }
 
-#restartBtn {
-  display: none;
-  margin-top: 1rem;
-  font-size: 2rem;
-  cursor: pointer;
-  outline: none;
-  border: none;
-}
-
-#restartBtn:hover {
-  background-color: rgb(124, 38, 221);
-}
-
 #player1Score {
   background-color: mediumturquoise;
   border-radius: 1em;
 }
 
-#player2Score {
+#computerScore {
   background-color: mediumspringgreen;
   border-radius: 1em;
+}
+
+#restartBtn {
+  display: none;
+  margin: auto;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 1em;
+  background-color: rgb(10, 245, 245);
+  color: black;
+}
+
+#restartBtn:hover {
+  background-color: rgb(124, 38, 221);
 }
 
 #arenaContainer {
@@ -83,4 +87,8 @@ body {
 
 .text-lose {
   color: red;
+}
+
+.text-draw {
+  color: blueviolet;
 }
